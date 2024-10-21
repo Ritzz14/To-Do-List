@@ -6,6 +6,9 @@ const timeInput = document.getElementById('timeInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
 const taskList = document.getElementById('taskList');
 
+addTaskBtn.addEventListener('click', addTask);
+searchInput.addEventListener('input', filterTasks);
+
 function addTask() {
     const task = taskInput.value.trim();
     const date = dateInput.value;
@@ -101,4 +104,22 @@ function renderTasks() {
             upcomingTaskList.appendChild(taskItem);
         }
     });
+
+    function editTask(index) {
+        const tasks = getTasksFromLocalStorage();
+        const task = tasks[index];
+        taskInput.value = task.task;
+        dateInput.value = task.date;
+        timeInput.value = task.time;
+        deleteTask(index);
+    }
+
+    function filterTasks() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const tasks = document.querySelectorAll('.task-item');
+        tasks.forEach(task => {
+            const text = task.querySelector('span').textContent.toLowerCase();
+            task.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+    }
 }
