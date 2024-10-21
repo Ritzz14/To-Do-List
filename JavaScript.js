@@ -114,6 +114,13 @@ function renderTasks() {
         deleteTask(index);
     }
 
+    function deleteTask(index) {
+        const tasks = getTasksFromLocalStorage();
+        tasks.splice(index, 1);
+        saveTasksToLocalStorage(tasks);
+        renderTasks();
+    }
+    
     function filterTasks() {
         const searchTerm = searchInput.value.toLowerCase();
         const tasks = document.querySelectorAll('.task-item');
