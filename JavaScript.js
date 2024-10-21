@@ -16,6 +16,8 @@ function addTask() {
         return;
     }
 
+    
+
     const tasks = getTasksFromLocalStorage();
     tasks.push({ task, date, time });
     saveTasksToLocalStorage(tasks);
@@ -56,4 +58,35 @@ function formatTime(time) {
     }
 
     return `${hour}:${minute} ${period}`;
+}
+
+function renderTasks() {
+    const dueTaskList = document.getElementById('dueTaskList');
+    const todayTaskList = document.getElementById('todayTaskList');
+    const upcomingTaskList = document.getElementById('upcomingTaskList');
+
+    dueTaskList.innerHTML = '';
+    todayTaskList.innerHTML = '';
+    upcomingTaskList.innerHTML = '';
+
+    const tasks = getTasksFromLocalStorage();
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+    tasks.forEach((taskObj, index) => {
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-item');
+
+        const taskInfo = document.createElement('span');
+        taskInfo.innerHTML = `${taskObj.date}: ${taskObj.task} at <strong>${formatTime(taskObj.time)}</strong>`;
+        taskItem.appendChild(taskInfo);
+
+        // Categorize tasks based on their date
+        if (taskObj.date < today) {
+            dueTaskList.appendChild(taskItem);
+        } else if (taskObj.date === today) {
+            todayTaskList.appendChild(taskItem);
+        } else {
+            upcomingTaskList.appendChild(taskItem);
+        }
+    });
 }
