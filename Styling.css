@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#addTaskBtn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addTaskBtn:hover {
+    background-color: #388e3c;
+}
+
+#tasks {
+    margin-top: 20px;
+}
+
+#tasks h2 {
+    color: #3f51b5;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.task-item span {
+    font-size: 16px;
+}
+
+.task-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-item .edit-btn {
+    background-color: #ffca28;
+    color: #333;
+}
+
+.task-item .edit-btn:hover {
+    background-color: #fbc02d;
+}
+
+.task-item .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.task-item .delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+#message {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffecb3;
+    color: #795548;
+    border: 1px solid #ffcc80;
+    border-radius: 4px;
+    display: none;
+}
