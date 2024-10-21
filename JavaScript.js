@@ -40,3 +40,20 @@ function clearInputs() {
     dateInput.value = '';
     timeInput.value = '';
 }
+
+function formatTime(time) {
+    let [hour, minute] = time.split(':');
+    let period = 'AM';
+    hour = parseInt(hour);
+
+    if (hour >= 12) {
+        period = 'PM';
+        if (hour > 12) {
+            hour -= 12;
+        }
+    } else if (hour === 0) {
+        hour = 12;
+    }
+
+    return `${hour}:${minute} ${period}`;
+}
