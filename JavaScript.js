@@ -120,7 +120,8 @@ function renderTasks() {
         saveTasksToLocalStorage(tasks);
         renderTasks();
     }
-    
+
+    //search tasks
     function filterTasks() {
         const searchTerm = searchInput.value.toLowerCase();
         const tasks = document.querySelectorAll('.task-item');
